@@ -1,12 +1,20 @@
 * {
     margin: 0;
     padding: 0;
-    box-sizing: content-box;
+    box-sizing: border-box;
     font-family: 'Montserrat', Tahoma, Geneva, Verdana, sans-serif;
+    scroll-behavior: smooth;
 }
 
 :root {
     --box-shadow1: 2px 2px 10px rgb(0, 0, 0);
+    --redcolor1: rgba(233, 10, 40, 0.8);
+    --redcolor2: rgba(233, 10, 40, 0.6);
+}
+
+body {
+    background-color: #000;
+    scroll-behavior: smooth;
 }
 a {
     color: white;
@@ -16,6 +24,9 @@ h4 {
     font-size: 18px;
     font-weight: 700;
 }
+*::selection {
+    background-color: var(--redcolor2);
+} 
 p {
     font-size: small;
     font-weight: 400;
@@ -25,7 +36,7 @@ p {
     display: flex;
     flex-direction: row;
     justify-content: center;
-    background-color: black;
+    background-color: rgba(0, 0, 0, 0.651);
     color: white;  
     gap: 10px;
     padding: 10px;
@@ -33,6 +44,7 @@ p {
     right: 0;
     left: 0;
     top: 0;
+    z-index: 99;
 }
 .navFixed > a {
     list-style-type: none;
@@ -42,14 +54,14 @@ p {
     transition: background-color 400ms;
 }
 .navFixed > a:hover {
-    background-color: rgb(207, 67, 67);
+    background-color: var(--redcolor1);
     border-radius: 4px;
 }
 
 .startPage {
-    background: burlywood;
+    background: rgb(10, 10, 10);
     content: "";
-    height: 100vh;
+    height: 100dvh;
     display: flex;
     flex-direction: row;
     background-image: url(img/Quality.jpg);
@@ -77,9 +89,8 @@ p {
     justify-content: center;
     align-items: center;
     position: absolute;
-    bottom: 20px;
+    bottom: 0px;
 }
-
 .botonFechas > a {
     font-weight: 700;
     background-color: rgba(0, 0, 0, 0.377);
@@ -93,8 +104,10 @@ p {
     box-shadow: var(--box-shadow1);
 }
 .botonFechas > a:hover {
-    background-color: rgba(255, 255, 255, 0.1);
+    background-color: var(--redcolor1);
 }
+
+/* POPUP */
 .overlay {
     position: fixed;
     top: 0;
@@ -156,7 +169,6 @@ p {
     margin-top: 20px;
     margin-top: auto;
 }
-
 .close {
     z-index: 1;
     color: #000;
@@ -170,6 +182,134 @@ p {
     padding-left: 10px;
     padding-right: 10px;
 }
+
+/* MUSICA */
+.musicPage {
+    background-color: #000;
+    min-height: 100dvh;
+    padding: 20px;
+    padding-top: 80px;
+    padding-bottom: 80px;
+}
+.musicContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 22px;
+    background-color: rgb(8, 8, 8);
+    margin-left: auto;
+    margin-right: auto;
+    height: 100%;
+    padding: 12px;
+    padding-top: 28px;
+    border-radius: 8px;
+}
+.titleVideo {
+    width: 320px;
+    height: fit-content;
+    object-fit: contain;
+}
+.video-container {
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%; /* Proporción de aspecto del video (16:9) */
+    overflow: hidden;
+    box-shadow: var(--box-shadow1);
+}
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 8px;
+}
+.musicContainer > span {
+    margin-top: 20px;
+}
+.suscribite {
+    font-weight: 600;
+    font-size: 14px;
+    background-color: rgb(173, 35, 25);
+    padding: 12px;
+    border-radius: 5px;
+    width: 100%;
+    display: block;
+}
+.suscribite:hover {
+    background-color: rgb(235, 42, 28);
+}
+.otrosLanzamientos {
+    background-color: #0e0e0e;
+    padding: 10px;
+    border-radius: 8px;
+    width: 100%;
+    display: flex;
+    gap: 5px;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    border: #ffffff7a solid 1px;
+    margin-top: 20px;
+    box-shadow: var(--box-shadow1);
+}
+.lanzamiento {
+    padding: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    gap: 8px;
+}
+.tituloLanzamiento {
+    font-size: 14px;
+    font-weight: 600;
+    color: #fff;
+}
+.spotify {
+    height: 20px;
+    object-fit: cover;
+}
+.lanzamientoImg {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 5px;
+    box-shadow: 1px 1px 3px #0000006e;
+    object-position: 58%;
+}
+
+/* FOOTER */
+footer {
+    background-color: #fff;
+    height: 220px;
+    padding: 40px;
+    padding-left: 80px;
+    padding-right: 80px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    gap: 60px;
+}
+.developedBy {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.developedBy > img {
+    width: 320px;
+    max-width: 100%;
+    object-fit: contain;
+}
+.contactDiuka {
+    line-height: 25px;
+    align-items: flex-start;
+}
+
+/* RESPONSIVE */
 @media only screen and (min-width:768px) {
     .startPage {
         background-position: 58% 10%;
@@ -190,5 +330,17 @@ p {
     }
     .cuerpoFecha {
         line-height: 20px;
+    }
+    .musicContainer {
+        width: 728px;
+    }
+    .lanzamientoImg {
+        width: 180px;
+        height: 180px;
+    }
+}
+@media only screen and (min-width:1080px) {
+    .musicContainer {
+        width: 980px;
     }
 }
