@@ -11,8 +11,8 @@
         <ul class="navFixed">
             <a href="#"><li>Inicio</li></a>
             <a href="#music"><li>Música</li></a>
-            <a href="#"><li>Bio</li></a>
-            <a href="#"><li>Contacto</li></a>
+            <a href="#bio"><li>Bio</li></a>
+            <a href="#contact"><li>Contacto</li></a>
         </ul>
     </nav>
     <div class="startPage">
@@ -59,9 +59,9 @@
     </div>
 
     <!-- SEGUNDA PÁGINA - MUSICA -->
-    <div class="musicPage" id="music">
+    <div class="mainPage" id="music">
         <div class="musicContainer">
-            <img src="img/yonotemerezco-title.png" alt="" class="titleVideo">
+            <img src="img/yonotemerezco-title.png" alt="Yo No Te Merezco" class="titleVideo">
             <div class="video-container">
                 <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/3vnhKOauGlM?si=4jdb_sDPqTY8HDJT&amp;controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
             </div>
@@ -87,7 +87,48 @@
             </div>
         </div>
     </div>
+<!-- BIO -->
+    <div class="mainPage" id="bio">
+        <div class="musicContainer biografia">
+            <p>La historia de "La 220" es un relato de pasión, dedicación y el irresistible poder del ritmo que comenzó en el año 2019 en la ciudad de Córdoba, Argentina.</p>
+            <p>La agrupación rápidamente se destacó en la escena por su energía contagiosa y su capacidad para fusionar la tradición del cuarteto con toques frescos y modernos.</p>
+            <p>La 220 se formó cuando los amigos de toda la vida, Gonzalo Giaché y Matías Melgarejo decidieron unir sus talentos para crear una propuesta musical única. Ambos compartían una profunda conexión con el cuarteto.
+            Desde sus primeros ensayos por Malvinas Argentinas, La 220 demostró una química musical excepcional. A medida que perfeccionaron su sonido, la banda comenzó a presentarse en pequeños clubes y eventos locales, y su energía en el escenario; la gran voz y carisma de Gonzalo Giaché y la capacidad para poner a la multitud a bailar fueron las claves de su éxito inicial.</p>
+            <p>En 2020, La 220 lanzó su primer sencillo, "Quién Sabe", que rápidamente se convirtió en un éxito en las radios de Córdoba y en plataformas de streaming. Este éxito les abrió las puertas a oportunidades de actuaciones en festivales más grandes como el festival Cordobeces en el Espacio Quality y giras por toda la región.</p>
+            <p>A lo largo de los años siguientes, La 220 continuó consolidando su posición en la escena musical del cuarteto. En la actualidad se encuentran presentando “Yo no te merezco”, un sencillo que llegó hasta las primeras posiciones de los rankings de las radios más escuchadas de la ciudad y la provincia.</p>
+        </div>
+        <div class="bioFotosContainer">
+            <img src="img/galeria/La jungla 4.jpg" alt="" class="bioFoto">
+            <img src="img/galeria/IMG_3574.JPG" alt="" class="bioFoto">
+            <img src="img/galeria/La jungla 2.jpg" alt="" class="bioFoto">
+            <img src="img/galeria/La jungla 3.jpg" alt="" class="bioFoto">
+            <img src="img/galeria/Quality.jpg" alt="" class="bioFoto">
+            <img src="img/galeria/IMG_20210425_010958_963_073304.jpg" alt="" class="bioFoto">
+            <img src="img/galeria/LA22 Festival Cordobeces-10.jpg" alt="" class="bioFoto">
+            <img src="img/galeria/LA22 Festival Cordobeces-3.jpg" alt="" class="bioFoto">
+            <img src="img/galeria/Quality 5.jpg" alt="" class="bioFoto">
+        </div>
+    </div>
+    
 
+    <!-- CONTACTO -->
+    <div class="mainPage" id="contact">
+        <div class="contacto">
+            <h3 style="margin-bottom: 30px;">Contactate con nosotros!</h3>
+            <form id="formulario-mensaje">
+                <label for="nombre">Nombre:</label>
+                <input type="text" id="nombre" name="nombre" required>
+        
+                <label for="email">Correo Electrónico:</label>
+                <input type="email" id="email" name="email" required>
+        
+                <label for="mensaje">Mensaje:</label>
+                <textarea id="mensaje" name="mensaje" rows="8" required></textarea>
+        
+                <button type="button" onclick="enviarFormulario()">Enviar Mensaje</button>
+            </form>
+        </div>
+    </div>
     <!-- FOOTER -->
     <footer>
         <div class="developedBy">
@@ -99,5 +140,30 @@
             <p>2945-403921</p>
         </div>
     </footer>
+    <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-database.js"></script>
+
+    <script>
+        function enviarFormulario() {
+            var nombre = document.getElementById('nombre').value;
+            var email = document.getElementById('email').value;
+            var mensaje = document.getElementById('mensaje').value;
+
+            // Configura la URL de tu aplicación web de Google Apps Script
+            var url = 'https://script.google.com/macros/s/AKfycbwFXayeFGNeB6bMJUAIMCpwAUkMBWLClb23MCK2cphfdpSfXxd8VrJXhmZdpi8gLf0XIw/exec';
+
+            // Envía los datos del formulario a Google Apps Script
+            fetch(url, {
+                method: 'POST',
+                mode: 'no-cors',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                body: 'nombre=' + encodeURIComponent(nombre) + '&email=' + encodeURIComponent(email) + '&mensaje=' + encodeURIComponent(mensaje),
+            });
+
+            alert('Mensaje enviado con éxito');
+        }
+    </script>
 </body>
 </html>
