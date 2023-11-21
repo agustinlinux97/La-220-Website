@@ -1,3 +1,5 @@
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
 * {
     margin: 0;
     padding: 0;
@@ -24,6 +26,11 @@ h4 {
     font-size: 18px;
     font-weight: 700;
 }
+h3 {
+    font-size: 1.4rem;
+    line-height: 2rem;
+    margin-bottom: 18px;
+}
 *::selection {
     background-color: var(--redcolor2);
 } 
@@ -38,7 +45,7 @@ p {
     justify-content: center;
     background-color: rgba(0, 0, 0, 0.651);
     color: white;  
-    gap: 10px;
+    gap: 6px;
     padding: 10px;
     position: fixed;
     right: 0;
@@ -47,9 +54,10 @@ p {
     z-index: 99;
 }
 .navFixed > a {
+    font-size: 0.8rem;
     list-style-type: none;
     font-weight: 600;
-    padding: 12px;
+    padding: 10px;
     border-radius: 4px;
     transition: background-color 400ms;
 }
@@ -224,6 +232,7 @@ p {
     width: 100%;
     height: 100%;
     border-radius: 8px;
+    box-shadow: var(--box-shadow1);
 }
 .musicContainer > span {
     margin-top: 20px;
@@ -247,10 +256,8 @@ p {
     padding: 10px;
     border-radius: 8px;
     width: 100%;
-    display: flex;
-    gap: 5px;
-    flex-wrap: wrap;
-    align-items: center;
+    columns: 3;
+    column-gap: 5px;
     justify-content: space-between;
     border: #ffffff7a solid 1px;
     margin-top: 20px;
@@ -274,18 +281,28 @@ p {
     object-fit: cover;
 }
 .lanzamientoImg {
-    width: 110px;
-    height: 110px;
+    width: 100%;
+    height: 100%;
     object-fit: cover;
     border-radius: 5px;
     box-shadow: 1px 1px 3px #0000006e;
     object-position: 58%;
 }
+
+.video-container2 {
+    max-width: 100%; /* Evita que el reproductor sea más ancho que el contenedor principal */
+    margin: 0 auto; /* Centra el reproductor horizontalmente */
+}
+.video-js {
+    width:420px; 
+    height:236px;
+}
+
+
 /* BIO */
 .biografia {
     background-color: #292929;
-    padding: 40px;
-
+    padding: 15px;
 }
 .biografia > p {
     line-height: 28px;
@@ -304,10 +321,26 @@ p {
     object-fit: cover;
     border-radius: 8px;
     margin-bottom: 20px;
+    animation: reveal linear both;
+    animation-timeline: view();
+    animation-range: entry 20% cover 40%;
 }
-
+@keyframes reveal {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
 /* CONTACTO */
-
+.whatsappLink {
+    color: #fff;
+    transition: color 300ms;
+}
+.whatsappLink:hover {
+    color: chartreuse;
+}
 .contacto {
     background-color: #292929;
     padding: 20px;
@@ -346,6 +379,167 @@ button {
 button:hover {
     background-color: rgb(235, 42, 28);
 }
+
+
+
+
+*:focus,
+*:active {
+  outline: none !important;
+  -webkit-tap-highlight-color: transparent;
+}
+
+html,
+body {
+  font-family: "Poppins", sans-serif;
+}
+
+.wrapper {
+    width: 100%;
+    display: flex;
+    list-style: none;
+    place-items: center;
+    justify-content: center;
+    margin-top: 40px;
+    margin-bottom: 20px;
+}
+
+.wrapper .icon {
+    color: #000;
+    position: relative;
+    background: #ffffff;
+    border-radius: 50%;
+    padding: 15px;
+    margin: 10px;
+    width: 50px;
+    height: 50px;
+    font-size: 18px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: all 0.2s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.wrapper .tooltip {
+  position: absolute;
+  top: 0;
+  font-size: 14px;
+  background: #ffffff;
+  color: #ffffff;
+  padding: 5px 8px;
+  border-radius: 5px;
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.wrapper .tooltip::before {
+  position: absolute;
+  content: "";
+  height: 8px;
+  width: 8px;
+  background: #ffffff;
+  bottom: -3px;
+  left: 50%;
+  transform: translate(-50%) rotate(45deg);
+  transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.wrapper .icon:hover .tooltip {
+  top: -45px;
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.wrapper .icon:hover span,
+.wrapper .icon:hover .tooltip {
+  text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.1);
+}
+
+.wrapper .facebook:hover,
+.wrapper .facebook:hover .tooltip,
+.wrapper .facebook:hover .tooltip::before {
+  background: #1877F2;
+  color: #ffffff;
+}
+
+.wrapper .instagram:hover,
+.wrapper .instagram:hover .tooltip,
+.wrapper .instagram:hover .tooltip::before {
+  background: #E4405F;
+  color: #ffffff;
+}
+
+.wrapper .youtube:hover,
+.wrapper .youtube:hover .tooltip,
+.wrapper .youtube:hover .tooltip::before {
+  background: #CD201F;
+  color: #ffffff;
+}
+
+.wrapperNav {
+    display: flex;
+    list-style: none;
+    place-items: center;
+    justify-content: center;
+    right: 10px;
+    position: absolute;
+    top: 14px;
+}
+.wrapperNav .icon {
+    color: #000;
+    position: relative;
+    background: #ffffff;
+    border-radius: 50%;
+    margin-left: 5px;
+    width: 26px;
+    height: 26px;
+    font-size: 18px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    cursor: pointer;
+    transition: all 0.2s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+.wrapperNav .icon:hover .tooltip {
+    top: -45px;
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+  }
+  
+  .wrapperNav .icon:hover span,
+  .wrapperNav .icon:hover .tooltip {
+    text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.1);
+  }
+  
+  .wrapperNav .facebook:hover,
+  .wrapperNav .facebook:hover .tooltip,
+  .wrapperNav .facebook:hover .tooltip::before {
+    background: #1877F2;
+    color: #ffffff;
+  }
+  
+  .wrapperNav .instagram:hover,
+  .wrapperNav .instagram:hover .tooltip,
+  .wrapperNav .instagram:hover .tooltip::before {
+    background: #E4405F;
+    color: #ffffff;
+  }
+  
+  .wrapperNav .youtube:hover,
+  .wrapperNav .youtube:hover .tooltip,
+  .wrapperNav .youtube:hover .tooltip::before {
+    background: #CD201F;
+    color: #ffffff;
+  }
+
 /* FOOTER */
 footer {
     background-color: #fff;
@@ -376,6 +570,16 @@ footer {
 
 /* RESPONSIVE */
 @media only screen and (min-width:768px) {
+    .navFixed > a {
+        font-size: 1rem;
+    }
+    .wrapperNav .icon {
+        width: 34px;
+        height: 34px;
+    }
+    .wrapperNav {
+        right: 24px;
+    }
     .startPage {
         background-position: 58% 10%;
     }
@@ -415,6 +619,10 @@ footer {
         width: 100%;
         gap: 60px;
     }
+    .biografia {
+        background-color: #292929;
+        padding: 30px;
+    }
     .bioFoto {
         width: 100%;
         min-height: 300px;
@@ -434,6 +642,14 @@ footer {
         margin-left: auto;
         margin-right: auto;
     }
+    .video-js {
+        width: 700px;
+        height: 393.75px; /* Calculado como (altura / ancho) * 100% para 16:9 */
+        margin-top: 30px;
+        margin-bottom: 30px;
+    }
+    
+    
 }
 @media only screen and (min-width:1080px) {
     .musicContainer {

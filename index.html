@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="img/icon.png" type="image/x-icon">
     <link rel="stylesheet" href="styles.css">
+        <!-- Incluye los estilos de Video.js -->
+        <link href="https://vjs.zencdn.net/8.6.1/video-js.css" rel="stylesheet" /><link href="https://unpkg.com/@videojs/themes@1/dist/city/index.css" rel="stylesheet">
+        <script src="https://kit.fontawesome.com/8511a74181.js" crossorigin="anonymous"></script>
     <title>La 220</title>
 </head>
 <body>
@@ -14,6 +17,23 @@
             <a href="#music"><li>Música</li></a>
             <a href="#bio"><li>Bio</li></a>
             <a href="#contact"><li>Contacto</li></a>
+            <ul class="wrapperNav">
+                <a href="https://www.facebook.com/220cuarteto" target="_blank">
+                    <li class="icon facebook">
+                      <span><i class="fab fa-facebook-f"></i></span>
+                    </li>
+                </a>
+                <a href="https://www.instagram.com/la220.cuarteto/" target="_blank">
+                    <li class="icon instagram">
+                      <span><i class="fab fa-instagram"></i></span>
+                    </li>
+                </a>
+                <a href="https://www.youtube.com/@la2209" target="_blank">
+                    <li class="icon youtube">
+                      <span><i class="fab fa-youtube"></i></span>
+                    </li>
+                </a>
+              </ul>
         </ul>
     </nav>
     <div class="startPage">
@@ -84,11 +104,17 @@
                     <p class="tituloLanzamiento">Tu Rival</p>
                     <a href="https://www.youtube.com/watch?v=t-OAGxpYzk0" target="_blank"><img src="img/youtube.png" alt="" class="spotify"></a>
                 </div>
-                
             </div>
+                <div class="video-container">
+                    <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/3NO90uYaJ8I?si=fMRp08em6vg7UTW0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                </div>
+                <div class="video-container">
+                    <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/t-OAGxpYzk0?si=PpwJYFhxPKStRmxH" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                </div>
+            
         </div>
     </div>
-<!-- BIO -->
+    <!-- BIO -->
     <div class="mainPage" id="bio">
         <div class="musicContainer biografia">
             <p>La historia de "La 220" es un relato de pasión, dedicación y el irresistible poder del ritmo que comenzó en el año 2019 en la ciudad de Córdoba, Argentina.</p>
@@ -115,7 +141,16 @@
     <!-- CONTACTO -->
     <div class="mainPage" id="contact">
         <div class="contacto">
-            <h3 style="margin-bottom: 30px;">Contactate con nosotros!</h3>
+            <h3 style="margin-bottom: 20px;">¡Contactate con nosotros!</h3>
+
+            <h4><i class="fa-brands fa-whatsapp"></i> 351-3426969</h4>
+            <p><a href="https://wa.link/3r74wx" class="whatsappLink">Iniciar conversación en WhatsApp</a></p>    
+            <br>
+            <h4><i class="fa-regular fa-envelope"></i> la220.cuarteto@gmail.com</h4>
+            <br>
+            <hr>
+            <br>
+            <h3>O dejanos tu mensaje acá:</h3>
             <form id="formulario-mensaje">
                 <label for="nombre">Nombre:</label>
                 <input type="text" id="nombre" name="nombre" required>
@@ -128,6 +163,26 @@
         
                 <button type="button" onclick="enviarFormulario()">Enviar Mensaje</button>
             </form>
+            <ul class="wrapper">
+                <a href="https://www.facebook.com/220cuarteto" target="_blank">
+                    <li class="icon facebook">
+                      <span class="tooltip">Facebook</span>
+                      <span><i class="fab fa-facebook-f"></i></span>
+                    </li>
+                </a>
+                <a href="https://www.instagram.com/la220.cuarteto/" target="_blank">
+                    <li class="icon instagram">
+                      <span class="tooltip">Instagram</span>
+                      <span><i class="fab fa-instagram"></i></span>
+                    </li>
+                </a>
+                <a href="https://www.youtube.com/@la2209" target="_blank">
+                    <li class="icon youtube">
+                      <span class="tooltip">Youtube</span>
+                      <span><i class="fab fa-youtube"></i></span>
+                    </li>
+                </a>
+              </ul>
         </div>
     </div>
     <!-- FOOTER -->
@@ -165,6 +220,8 @@
 
             alert('Mensaje enviado con éxito');
         }
+        var player = videojs('miVideo');
     </script>
+      <script src="https://vjs.zencdn.net/8.6.1/video.min.js"></script>
 </body>
 </html>
